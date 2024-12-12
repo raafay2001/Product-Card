@@ -1,0 +1,134 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+*{
+    margin: 0;
+    padding:0;
+    box-sizing: border-box;
+    font-family: "Poppins", serif , arial;
+}
+:root{
+    --color:#950101;
+}
+body{
+    width: 100%;
+    min-height: 100vh;
+    background-color: rgb(27,27,27);
+    display: flex;
+    align-items: center;
+    justify-content: center ;
+}
+.card{
+    max-width: 700px;
+    width: 100%;
+    background-color: rgb(20,20,20);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 2em;
+    align-items: center;
+    justify-content: space-between;
+    color: #fff;
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+.card::before{
+    position: absolute;
+    content: '';
+    width: 500px;
+    height: 500px;
+    background-color: var(--color);
+    border-radius: 50%;
+    z-index: -1;
+    top: -70%;
+    right: 50%;
+}
+.card::after{
+    position: absolute;
+    content: 'NIKE';
+    font-size: 20rem;
+    font-weight: bolder;
+    font-style: italic;
+    z-index: -2;
+    opacity: 0.05;
+    transform: rotate(-10deg);
+}
+.card img{
+    width: 400px;
+    transition: transform 0.6s ease;
+}
+.card:hover img{
+    transform: scale(1.1) rotate(10deg);
+}
+
+.details{
+    padding-left: 2em;
+}
+.sub-title{
+    font-size: 1.2rem;
+    font-weight: lighter;
+}
+.title{
+    font-size: 2rem;
+    font-weight: bold;
+}
+.price{
+    font-size: 2rem;
+    font-weight: bold;
+}
+.price span{
+    font-size: 1rem;
+    font-weight: 300;
+    text-decoration: line-through;
+}
+.sizes{
+    margin-top: 2em;
+    display: flex;
+    align-items: center;
+    gap: 1em;
+}
+.sizes span{
+    width: 30px;
+    height: 30px;
+    background-color: transparent;
+    color: #fff;
+    border: #fff 2px solid;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+.sizes span.active{
+    background-color: #fff;
+    color: var(--color);
+}
+button{
+    margin-top: 2em;
+    font-size: 1.4rem;
+    padding: 0.3em 1.2em;
+    background-color: var(--color);
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color .5s ease, color .5s ease;
+}
+button:hover{
+    background-color: #fff;
+    color: var(--color);
+}
+
+@media(max-width:700px){
+    .card{
+        grid-template-columns: 1fr;
+        margin: 1em;
+    }
+    .card > div{
+        width: 100%;
+    }
+    .card img{
+        width: 100%;
+    }
+}
+
